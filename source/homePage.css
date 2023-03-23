@@ -1,0 +1,82 @@
+/* 首页 */
+* {
+	padding: 0;
+	margin: 0;
+}
+#main{
+    position: relative;
+}
+
+#body {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+    background-image: radial-gradient(circle, #ba5b49, #b65645, #b35142, #af4c3e, #ab473b, #a94338, #a63f34, #a43b31, #a3372d, #a1332a, #a02f26, #9e2a22);
+	/* 视距 让元素看起来更有3D效果 */
+	perspective: 900px;
+}
+#body section {
+	position: relative;
+	width: 300px;
+	height: 200px;
+	cursor: pointer;
+	/* 让子元素保留其3D位置 */
+	transform-style: preserve-3d;
+	/* 动画名称 时长 linear 是匀速 播放 infinite 是无限次播放 */
+	animation: rotate 20s linear infinite;
+}
+ #body section:hover {
+	/* 鼠标放到元素上停止动画 */
+	animation-play-state: paused;
+}
+#body img {
+	width: 300px;
+	height: 200px;
+}
+#body section div {
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	/* 设置元素的倒影效果 below 是倒影效果在元素下方 15px 是元素和倒影的距离 后面的属性和背景渐变色是一个属性 设置了一个从下到上由背景透明色过渡到设置了不透明度的白色 */
+	-webkit-box-reflect: below 15px -webkit-linear-gradient(transparent 10%, rgba(255, 255, 255, 0.3));
+}
+ #body section div:nth-child(1) {
+	transform: translateZ(300px);
+}
+#body section div:nth-child(2) {
+	transform: rotateY(60deg) translateZ(300px);
+}
+#body section div:nth-child(3) {
+	transform: rotateY(120deg) translateZ(300px);
+}
+#body section div:nth-child(4) {
+	transform: rotateY(180deg) translateZ(300px);
+}
+#body section div:nth-child(5) {
+	transform: rotateY(240deg) translateZ(300px);
+}
+#body section div:nth-child(6) {
+	transform: rotateY(300deg) translateZ(300px);
+}
+/* 先定义旋转动画 */
+@keyframes rotate {
+	0% {
+		transform: rotateY(0);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+
+p {
+    position: absolute;
+}
